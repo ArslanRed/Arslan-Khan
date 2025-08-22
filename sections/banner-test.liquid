@@ -1,0 +1,453 @@
+<section class="gift-guide-banner">
+  <!-- Header: Logo + Tagline + CTA -->
+  <div class="banner-header">
+    <!-- Logo Text -->
+    <div class="banner-logo">
+      <span class="logo-text">{{ section.settings.logo_text }}</span>
+    </div>
+
+    <!-- Tagline -->
+    <div class="banner-tagline">
+      {{ section.settings.tagline }}
+    </div>
+
+    <!-- CTA Button -->
+    <div class="banner-cta-button">
+      <a href="{{ section.settings.cta_link }}" class="btn-choose-gift">
+        {{ section.settings.cta_text }}
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Frame 1 -->
+  <img src="{{ 'Frame1.png' | asset_url }}" alt="Frame 1" class="frame1">
+
+  <!-- Main flex content: Gift Guide Text + Frame 2 -->
+  <div class="banner-main-flex">
+    <div class="gift-guide-text">
+      <h1>{{ section.settings.main_title }}</h1>
+      <p>{{ section.settings.description }}</p>
+      <a href="{{ section.settings.shop_link }}" class="btn-shop-now">{{ section.settings.shop_text }}
+        <span class="arrowwhite">→</span>
+      </a>
+    </div>
+
+    <img src="{{ 'Frame2.png' | asset_url }}" alt="Frame 2" class="frame2">
+  </div>
+
+  <!-- Footer -->
+  <div class="banner-footer">
+    {{ section.settings.footer_text }}
+  </div>
+  <!-- MOBILE HEADER -->
+<div class="mobile-header">
+  <div class="mobile-header-top">
+    <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+    <div class="mobile-logo">{{ section.settings.logo_text }}</div>
+  </div>
+  
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-tagline">{{ section.settings.tagline }}</div>
+    <a href="{{ section.settings.cta_link }}" class="btn-choose-gift">{{ section.settings.cta_text }} <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- MOBILE GIFT GUIDE -->
+<div class="mobile-gift-guide">
+  <h1>{{ section.settings.main_title }}</h1>
+  <p>{{ section.settings.descriptionmini }}</p>
+  <div class="mobile-frame-wrapper">
+    <img src="{{ 'Frame.png' | asset_url }}" alt="Frame" class="mobile-frame">
+    <a href="{{ section.settings.shop_link }}" class="btn-shop-now-mobile">
+  {{ section.settings.shop_text }}
+  <span class="arrowwhite">→</span>
+</a>
+</div>
+</div>
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap');
+
+
+
+/* HEADER */
+.banner-header {
+  position: relative;
+  width: 100vw; /* full screen width */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, button right */
+  padding: 20px 40px; /* left/right margin */
+  box-sizing: border-box;
+}
+
+/* Logo Text */
+.banner-logo .logo-text {
+  width: 151.44px;
+  height: 19px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+/* Tagline */
+.banner-tagline {
+  width: 260px;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  line-height: 13.42px;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-choose-gift {
+  width: 207px;
+  height: 44px;
+  background: #FFD700;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* space between text and arrow */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-choose-gift .arrow {
+ 
+  line-height: 1;
+  display: inline-block;
+  font-size: 28px;  /* bigger than text for bold effect */
+  font-weight: bold;
+  margin-bottom: 6px;
+  
+}
+
+
+.btn-choose-gift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+
+
+/* Frames */
+.frame1 {
+  width: 1440px;
+  height: 390px;
+  margin-top: 64px;
+  display: block;
+}
+
+
+.banner-main-flex {
+  display: flex;
+  
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1400px; /* or container width you want */
+  margin-left: auto;
+  margin-right: auto; /* center the whole flex block */
+  flex-wrap: nowrap; /* keep text and image on same line */
+  box-sizing: border-box;
+  padding: 0 20px; /* optional small padding */
+}
+
+.gift-guide-text {
+  width: 459px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* spacing between title, text, button */
+  z-index: 10; /* make sure text is above image if overlapping */
+ 
+}
+
+.gift-guide-text h1 {
+  white-space: nowrap;  /* prevents line breaks */
+  margin-top:35px;
+}
+
+
+.btn-shop-now {
+  width: 220px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  background-color: black; /* visible by default */
+  color: white;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.btn-shop-now .arrowwhite{
+  font-size: 28px;  /* bigger than text for bold effect */
+  font-weight: bold;
+  margin-bottom: 6px;
+ 
+}
+
+.btn-shop-now:hover {
+  background-color: #333; /* slightly darker on hover */
+  transform: translateY(-4px);
+
+}
+
+
+
+
+
+
+/* Frame2 */
+.frame2 {
+   max-width: 890px; /* remaining space in the flex row */
+  height:402px;
+  
+  object-fit: contain; /* aligns with Gift Guide block */
+  
+}
+
+/* Footer */
+.banner-footer {
+  text-align: center;
+  font-size: 16px;
+  line-height: 13.42px;
+  margin-top: 40px;
+  font-weight: 400;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  /* Hide desktop elements */
+  .banner-header, .banner-main-flex, .frame2, .frame1 { display: none; }
+  
+  /* Hide desktop footer and reposition it at the end */
+  .banner-footer {
+    display: none;
+  }
+
+  /* Mobile container */
+  .gift-guide-banner {
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+  }
+
+  /* Header */
+  .mobile-header {
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #000;
+  }
+
+  .mobile-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #eee;
+  }
+
+  .mobile-menu .mobile-tagline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .mobile-menu .btn-choose-gift {
+    background: #FFD700;
+    color: #000;
+    padding: 12px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Main content */
+  .mobile-gift-guide {
+    padding: 40px 20px 0 20px;
+    text-align: center;
+    background: white;
+  }
+
+  .mobile-gift-guide h1 {
+    font-family: 'Jost', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #000;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+  }
+
+  .mobile-gift-guide p {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.4;
+    margin: 0 0 30px 0;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mobile-frame-wrapper {
+    position: relative;
+    width: 96.5vw;
+    height: 100%;
+    margin: 30px -20px 0 -20px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .mobile-frame {
+    width: 683px;
+    height: 264px;
+   
+  }
+
+  .btn-shop-now-mobile {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 193px;
+    height: 45px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  .btn-shop-now-mobile:hover {
+    background-color: #333;
+    transform: translateX(-50%) translateY(-4px);
+  }
+
+  .btn-shop-now-mobile .arrowwhite {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    z-index:11;
+  }
+
+  /* Mobile Footer - add after mobile content */
+  .mobile-gift-guide::after {
+    content: "{{ section.settings.footer_textmini }}";
+    display: block;
+    padding: 5px 0;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; 
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+/* Hide mobile elements on desktop */
+@media (min-width: 769px) {
+  .mobile-header,
+  .mobile-gift-guide {
+    display: none !important;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Gift Guide Banner",
+  "settings": [
+    {"type": "text","id": "logo_text","label": "Logo Text","default": "TISSO VISION"},
+    {"type": "text","id": "tagline","label": "Tagline","default": "Find the ideal gift for your loved ones"},
+    {"type": "text","id": "cta_text","label": "Top CTA Button Text","default": "CHOOSE GIFT"},
+    {"type": "url","id": "cta_link","label": "Top CTA Button Link"},
+    {"type": "text","id": "main_title","label": "Main Title","default": "The Gift Guide"},
+    {"type": "textarea","id": "description","label": "Description","default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.."},
+    {"type": "textarea","id": "descriptionmini","label": "Descriptionmini","default": "Discover Joy: Your Ultimate Holiday Gift Destination."},
+    {"type": "text","id": "shop_text","label": "Shop Button Text","default": "SHOP NOW"},
+    {"type": "url","id": "shop_link","label": "Shop Button Link"},
+    {"type": "text","id": "footer_text","label": "Footer Text","default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6X"},
+    {"type": "text","id": "footer_textmini","label": "Footer Text Mini","default":"Sustainable, Ethically Made ActiveWear" },
+
+  ],
+  "presets": [{"name": "Gift Guide Banner"}]
+}
+{% endschema %}
